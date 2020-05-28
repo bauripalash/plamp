@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="content_wrapper" id="content_wrapper">
+  <article class="content">
+    <!-- {{- partial "post/under-title.html" . -}} -->
+    {{ .Content }}
+    <!-- {{- partial "post/related-content.html" . -}} -->
+    <!-- {{- partial "post/author.html" . -}} -->
+    <hr class="sep">
+    {{- partial "post/comments.html" . -}}
+  </article>
+</div>
+{{ end }}

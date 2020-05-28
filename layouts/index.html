@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<!-- BANNER -->
+<div class="banner-container">
+  <div class="banner-text">
+    <h3>{{ i18n "banner_title_top" }}</h3>
+    <h3>{{ i18n "author_name" }}</h3>
+    <p>{{ i18n "banner_subtitle" }}</p>
+  </div>
+
+  <!-- <img class="responsive-img banner-img" src="/banner.svg" alt="alt-text" /> -->
+
+  <amp-img
+				src="/banner.svg"
+				width = "789px"
+				height = "409px"
+                layout="responsive" alt=" "
+                class="responsive-img banner-img">
+            </amp-img>
+</div>
+<br /><br />
+<!-- <img class="responsive-img" src="./hr.svg"/> -->
+<!-- END BANNER -->
+
+<div class="post-list-wrapper">
+  <div class="post-list">
+    {{ range .Paginator.Pages }} {{- partial "post/summary.html" . -}} {{ end }}
+  </div>
+</div>
+{{- partial "page/pagination.html" . -}} {{ end }}

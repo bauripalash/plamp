@@ -1,0 +1,72 @@
+<div class="post-top">
+
+<time class="post-date" datetime="{{ .Page.PublishDate.Format "2006-01-02T15:04:05" | safeHTMLAttr }}">
+    {{ $months := index .Site.Data (i18n "months") }}
+    {{ $month := index $months (printf "%d" .Page.PublishDate.Month) }}
+    {{ i18n "published" (dict "Day" .Page.PublishDate.Day "Month" $month "Year" .Page.PublishDate.Year) }}
+</time> / {{ $taxonomy := "tags" }}
+    <!-- <ul id="{{ $taxonomy }}"> -->
+        <!-- <li>{{ i18n "tags" }}:</li>&nbsp; -->
+        <span class="post-head-tags" id="{{ $taxonomy }}" title="{{ $taxonomy }}">
+        {{ range  .Page.Param $taxonomy }}
+            {{ $name := . }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy ($name | urlize)) }}
+                <a href="{{ .Permalink }}" data-rel="prefetch">{{$name}}</a>
+            {{ end }}
+        {{ end }}
+    </span>
+</div>
+    <!-- </ul> -->
+        
+        {{ with .Page.Title}}
+        <h1 class="post-title"> {{ . }} </h1>
+        {{ end }}
+        {{ with .Page.Params.Image.Src }}
+            <div class="post-banner">
+                {{ $resource := resources.Get . }}
+                {{ with $resource }}
+                <amp-img
+                    src={{ . | absURL}}
+
+                    srcset="
+                        {{ (.Resize "1200x").Permalink }} 1200w,
+                        {{ (.Resize "800x").Permalink }} 800w,
+                        {{ (.Resize "640x").Permalink }} 640w,
+                        {{ (.Resize "480x").Permalink }} 480w,
+                        {{ (.Resize "320x").Permalink }} 320w"
+                    
+                    width={{ .Width }}
+                    height={{ .Height }}
+                    layout="intrinsic"
+                    
+                    class="content-banner">
+                    <noscript>
+                        <img src="{{ . | absURL }}"                
+                        width={{ .Width }}
+                        height={{ .Height }}
+                        class="responsive-img">
+                        
+                    </noscript>
+                </amp-img>
+                {{end}}
+
+            </div>
+        {{ end }}
+
+        
+        <!-- {{ with .Page.Params.Author.Name }} {{ i18n "by" }} {{ . }} {{ end }} -->
+        <!-- {{ $taxonomy := "tags" }}
+        <ul id="{{ $taxonomy }}">
+            <li>{{ i18n "tags" }}:</li>&nbsp;
+            {{ range .Page.Param $taxonomy }}
+                {{ $name := . }}
+                {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy ($name | urlize)) }}
+                    <li><a href="{{ .Permalink }}" data-rel="prefetch">{{ $name }}</a></li>
+                {{ end }}
+            {{ end }}
+        </ul> -->
+    <!-- </div> -->
+    <!-- <div class="under-title__social-share social-share">
+        {{- partial "post/social-share.html" . -}}
+    </div> -->
+<!-- </section> -->

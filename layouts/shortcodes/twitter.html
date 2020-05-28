@@ -1,0 +1,9 @@
+<amp-twitter {{ if .Get "width" }}width="{{ .Get "width" }}" {{else}} width="1" {{ end }}
+             {{ if .Get "height" }}height="{{ .Get "height" }}" {{else}} height="1" {{ end }}
+             {{ if .Get "layout" }}layout="{{ .Get "layout" }}" {{else}} layout="responsive" {{ end }}
+             {{ if .Get "tweet" }}data-tweetid="{{ .Get "tweet" }}"{{ end }}
+             {{ if .Get "cards" }}data-cards="{{ .Get "cards" }}"{{ end }}>
+    <blockquote placeholder class="twitter-tweet" data-lang="en">
+        <p lang="en" dir="ltr">Tweet is loading very soon...</p>
+    </blockquote>
+</amp-twitter>

@@ -1,0 +1,12 @@
+<amp-reddit
+        {{ if .Get "width" }}width="{{ . }}" {{else}} width="1" {{ end }}
+        {{ if .Get "height" }}height="{{ . }}" {{else}} height="1" {{ end }}
+        {{ if .Get "layout" }}layout="{{ . }}" {{else}} layout="responsive" {{ end }}
+        {{ if .Get "type" }}data-embedtype="{{ .Get "type"}}" {{else}} data-embedtype="post" {{end}}
+        {{ if .Get "src" }}data-src="{{ .Get "src" }}"{{ end }}
+        {{ if .Get "uuid" }}data-uuid="{{ .Get "uuid" }}"{{ end }}
+        {{ if .Get "created" }}data-embedcreated="{{ .Get "created" }}"{{ end }}
+        {{ if .Get "parent" }}data-embedparent="{{ .Get "parent" }}"{{ end }}
+        {{ if .Get "live" }}data-embedlive="{{ .Get "live" }}"{{ end }}
+        
+        ></amp-reddit>

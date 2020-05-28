@@ -1,0 +1,28 @@
+<figure class="figure {{ if .Get "caption" }} figure--with-caption {{ end }}">
+    
+
+    <amp-img
+        src="{{ .Get "src" | absURL }}"
+        width={{ if .Get "width" }} "{{ .Get "width" }}" {{else}} "1" {{ end }}
+        height={{ if .Get "height" }} "{{ .Get "height"  }}" {{else}} "1" {{ end }}
+        layout={{ if .Get "layout" }}"{{ .Get "layout" }}"{{else}}"responsive"{{ end }}
+        {{ if .Get "alt" }}alt="{{ .Get "alt" }}"{{ end }}
+        class="figure__image {{ if .Get "class" }}{{ .Get "class" }}{{ end }} {{ if .Get "caption" }}figure__image--with-caption{{ end }}">
+        <noscript>
+            <img src="{{ .Get "src" | absURL }}"                
+            {{ if .Get "alt" }}alt="{{ .Get "alt" }}"{{ end }}
+            width={{ if .Get "width" }} "{{ .Get "width" }}" {{else}} "1" {{ end }}
+        height={{ if .Get "height" }} "{{ .Get "height"  }}" {{else}} "1"  {{ end }}
+            class="{{ if .Get "class" }} {{ .Get "class" }} {{else}} responsive-img {{ end }}">
+            
+        </noscript>
+    </amp-img>
+
+
+{{ if .Get "caption" }}
+<figcaption>
+    {{ .Get "caption" }}
+</figcaption>
+{{ end }}
+
+</figure>

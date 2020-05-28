@@ -1,0 +1,9 @@
+<amp-soundcloud {{ if .Get "height" }}height="{{ .Get "height" }}" {{else}} height = "166" {{ end }}
+                {{ if .Get "width" }}width="{{ .Get "width" }}"  {{ end }}
+                layout="fixed-height"
+                {{ if .Get "track" }}data-trackid="{{ .Get "track" }}"{{ end }}
+                {{ if .Get "secret" }}data-secret-token="{{ .Get "secret" }}"{{ end }}
+                {{ if .Get "visual" }}data-visual="{{ .Get "visual" }}" {{else}} data-visual="false" {{ end }}
+                {{ if .Get "color" }}data-color="{{ .Get "color" }}" {{else}} data-color="#0048cd" {{ end }}
+                {{if .Get "playlist" }} data-playlistid="{{ .Get "playlist" }}" {{end}}>
+            </amp-soundcloud>

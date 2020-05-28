@@ -1,0 +1,21 @@
+<amp-youtube
+        {{ if .Get "video" }}data-videoid="{{ .Get "video" }}"{{ end }}
+        {{ if .Get "autoplay" }}autoplay{{ end }}
+        {{ if .Get "controls" }}data-param-controls="1"{{ end }}
+        {{ if .Get "color" }}data-param-color="{{ .Get "color" }}"{{ end }}
+        {{ if .Get "disablekb" }}data-param-disablekb="{{ .Get "disablekb" }}"{{ end }}
+        {{ if .Get "end" }}data-param-end="{{ .Get "end" }}"{{ end }}
+        {{ if .Get "fs" }}data-param-fs="{{ .Get "fs" }}"{{ end }}
+        {{ if .Get "hl" }}data-param-hl="{{ .Get "hl" }}"{{ end }}
+        {{ if .Get "list" }}data-param-list="{{ .Get "list" }}"{{ end }}
+        {{ if .Get "listType" }}data-param-listType="{{ .Get "listType" }}"{{ end }}
+        {{ if .Get "loop" }}data-param-loop="{{ .Get "loop" }}"{{ end }}
+        {{ if .Get "modestbranding" }}data-param-modestbranding="{{ .Get "modestbranding" }}"{{ end }}
+        {{ if .Get "playlist" }}data-param-playlist="{{ .Get "playlist" }}"{{ end }}
+        {{ if .Get "playsinline" }}data-param-playsinline="{{ .Get "playsinline" }}"{{ end }}
+        {{ if .Get "rel" }}data-param-rel="{{ .Get "rel" }}"{{ end }}
+        {{ if .Get "showinfo" }}data-param-showinfo="{{ .Get "showinfo" }}"{{ end }}
+        {{ if .Get "start" }}data-param-start="{{ .Get "start" }}"{{ end }}
+        {{ if .Get "layout" }}layout="{{ .Get "layout" }}" {{else}} layout="responsive" {{ end }}
+        {{ if .Get "width" }}width="{{ .Get "width" }}" {{else}} width="1" {{ end }}
+        {{ if .Get "height" }}height="{{ .Get "height" }}" {{else}} height="1" {{ end }}></amp-youtube>

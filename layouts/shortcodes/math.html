@@ -1,0 +1,6 @@
+<amp-mathml
+  layout="container"
+  {{ if .Get "inline" }} inline {{ end }}
+  {{ if .Get "df" }} data-formula="{{ .Get "df" }}" {{ else }} data-formula={{ .Inner }} {{ end }}
+  >
+</amp-mathml>

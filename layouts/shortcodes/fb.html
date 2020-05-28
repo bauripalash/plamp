@@ -1,0 +1,23 @@
+{{ if .IsNamedParams }}
+<amp-facebook
+        {{ if .Get "href" }}data-href="{{ .Get "href" }}"{{ end }}
+        {{ if .Get "type" }}data-embed-as="{{ .Get "type" }}" {{else}} data-embed-as = "post" {{ end }}
+        {{ if .Get "layout" }}layout="{{ .Get "layout" }}" {{else}} layout="responsive" {{ end }}
+        {{ if .Get "width" }}width="{{ .Get "width" }}" {{else}} width="500" {{ end }}
+        {{ if .Get "height" }}height="{{ .Get "height" }}" {{else}} height="500" {{ end }}
+        {{ if .Get "parent" }}data-include-comment-parent="true"{{end}}
+        data-align-center="true"
+        {{ if .Get "locale" }} data-locale="{{ .Get "locale" }}" {{end}}
+        ></amp-facebook>
+{{else}}
+<amp-facebook
+{{ if .Get 0 }} data-href="{{ .Get 0 }}"{{end}}
+{{if .Get 1 }} data-embed-as="{{ .Get 1 }}" {{else}} data-embed-as="post" {{end}}
+width="500"
+{{if .Get 2}} height="{{ .Get 2}}" {{else}} height="500" {{end}}
+layout="responsive"
+data-align-center="true"
+
+></amp-facebook>
+
+        {{end}}

@@ -1,0 +1,17 @@
+<amp-video
+        {{ if .Get "src" }}src="{{ .Get "src" }}"{{ end }}
+        {{ if .Get "poster" }}poster="{{ .Get "poster" }}"{{ end }}
+        {{ if .Get "width" }}width="{{ .Get "width" }}"{{ end }}
+        {{ if .Get "height" }}height="{{ .Get "height" }}"{{ end }}
+        {{ if .Get "layout" }}layout="{{ .Get "layout" }}"{{ end }}
+        {{ if .Get "controls" }} controls {{ end }}
+        {{ if .Get "autoplay" }} autoplay {{ end }}
+        {{ if .Get "muted" }} muted {{ end }}
+        {{ if .Get "loop" }} loop {{ end }}>
+    <div fallback>
+        <p>Your browser doesn't support HTML5 video.</p>
+    </div>
+    {{ if .Get "source" }}
+        {{ .Get "source" | safeHTML }}
+    {{ end }}
+</amp-video>

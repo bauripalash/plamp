@@ -1,0 +1,39 @@
+{{ if .IsNamedParams }}
+<amp-audio
+        {{ if .Get "width" }}width="{{ .Get "width" }}" {{else}} width = "auto" {{ end }}
+        {{ if .Get "height" }}height="{{ .Get "height" }}"{{ end }}
+        {{ if .Get "src" }}src="{{ .Get "src" }}"{{ end }}
+        {{ if .Get "layout" }}layout="{{ .Get "layout" }}"{{ end }}
+        {{ if .Get "autoplay" }}autoplay{{ end }}
+        {{ if .Get "loop" }}loop{{ end }}
+        {{ if .Get "muted" }}muted{{ end }}
+        {{ if .Get "artwork"}} artwork= "{{ .Get "artwork" }}" {{end}}
+        {{if .Get "title"}} title= "{{ .Get "title" }}" {{end}}
+        {{ if .Get "album" }} album= "{{ .Get "album" }}" {{end}}
+        {{ if .Get "artist" }} artist= "{{ .Get "artist" }}" {{end}}
+        
+        {{if .Get  "controls" }} controls {{end}}
+        >
+    <div fallback>
+        <p>{{ i18n "audioFail" }}</p>
+    </div>
+    {{ if .Get "mp3" }}<source type="audio/mpeg" src="{{ .Get "mp3" }}">{{ end }}
+    {{ if .Get "ogg" }}<source type="audio/ogg" src="{{ .Get "ogg" }}">{{ end }}
+</amp-audio>
+
+{{else}}
+
+<amp-audio
+
+src="{{ .Get 0 }}"
+width="auto"
+controls
+
+>
+<div fallback>
+    <p>{{ i18n "audioFail" }}</p>
+</div>
+
+</amp-audio>
+
+{{end}}

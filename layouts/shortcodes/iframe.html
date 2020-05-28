@@ -1,0 +1,10 @@
+<amp-iframe allowfullscreen
+	{{ if .Get "class" }} class="{{ .Get "class" }}"{{ end }}
+	{{ if .Get "height" }} height="{{ .Get "height" }}"{{ end }}
+    {{ if .Get "width" }} width="{{ .Get "width" }}"{{else}} width="500" {{ end }}
+	{{ if .Get "layout" }} layout="{{ .Get "layout" }}" {{else}} layout="responsive" {{ end }}
+	{{ if .Get "scrolling" }} scrolling="{{ .Get "scrolling" }}"{{ end }}
+	{{ if .Get "frameborder" }} frameborder="{{ .Get "frameborder" }}"{{ end }}
+	{{ if  .Get "sandbox" }} sandbox="{{ .Get "sandbox" }}"{{ end }}
+	{{ if .Get "src" }} src="{{ .Get "src" | absURL }}"{{ end }}>
+</amp-iframe>

@@ -1,0 +1,6 @@
+<amp-pinterest {{ if .Get "width" }}width="{{ .Get "width" }}" {{else}} width="1" {{ end }}
+               {{ if .Get "height" }}height="{{ .Get "height" }}" {{else}} height="1" {{ end }}
+               {{ if .Get "layout" }}layout="{{ .Get "layout" }}" {{else}} layout="responsive" {{ end }}
+               {{ if .Get "url" }}data-url="{{ .Get "url" }}"{{ end }}
+               data-do="embedPin">
+</amp-pinterest>

@@ -1,0 +1,65 @@
+{{ if .IsNamedParams }}
+    {{ $resource := resources.Get  (.Get "src") }}
+    {{ with $resource }}
+        <amp-anim
+            {{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }}
+            {{ if $.Get "alt" }} alt="{{ $.Get "alt" }}" {{ end }}
+            {{ if $.Get "width" }} width="{{ $.Get "width" }}" {{else}} {{ .Width }} {{ end }}
+            {{ if $.Get "height" }} height="{{ $.Get "height" }}" {{else}} {{ .Height }} {{ end }}
+            {{ if $.Get "layout" }} layout="{{ $.Get "layout" }}" {{else}} responsive {{ end }}
+            src="{{ .Permalink  | absURL}}">
+
+            {{ if $.Get "placeholder" }}
+                <amp-img placeholder
+                {{ if $.Get "width" }} width="{{ $.Get "width" }}" {{else}} {{ .Width }} {{ end }}
+                {{ if $.Get "height" }} height="{{ $.Get "height" }}" {{else}} {{ .Height }} {{ end }}
+                src="{{ $.Get "placeholder" }}">
+                
+                </amp-img>
+            {{ end }}
+
+            <noscript>
+                <img src="{{ .Permalink  | absURL }}"                
+                {{ if $.Get "alt" }} alt="{{ $.Get "alt" }}" {{ end }}
+                {{ if $.Get "width" }} width="{{ $.Get "width" }}" {{else}} {{ .Width }} {{ end }}
+                {{ if $.Get "height" }} height="{{ $.Get "height" }}" {{else}} {{ .Height }} {{ end }}
+                {{ if $.Get "class" }} class="{{ $.Get "class" }}" {{else}} class= "responsive-img" {{ end }}>
+                
+            </noscript>
+
+
+        </amp-anim>
+    {{ end }}
+{{else}}
+{{ $resource := resources.Get  (.Get 0) }}
+    {{ with $resource }}
+        <amp-anim
+            src="{{ .Permalink  | absURL}}"
+            layout="responsive"
+            {{ if len $.Params | eq 3 }} height="{{ $.Get 2 }}" {{else}} height="{{ .Height }}" {{ end }}
+            {{ if len $.Params | eq 4 }} width="{{ $.Get 3 }}" {{else}} width="{{ .Width }}" {{ end }}
+            {{ if len $.Params | eq 2 }} alt="{{ $.Get 1 }}" {{ end }}>
+
+            {{ if len $.Params | eq 5 }}
+            
+            <amp-img placeholder
+                {{ if len $.Params | eq 3 }}height="{{ $.Get 2 }}"{{else}} height="{{ .Height }}" {{ end }}
+                {{ if len $.Params | eq 4 }}width="{{ $.Get 3 }}" {{else}} width="{{ .Width }}" {{ end }}
+                src="{{ $.Get 4 }}">
+                
+            </amp-img>
+            
+            {{ end }}
+
+            <noscript>
+                <img src="{{ .Permalink  | absURL }}"                
+                {{ if len $.Params | eq 2 }} alt="{{ $.Get 1 }}" {{ end }}
+                {{ if len $.Params | eq 3 }} height="{{ $.Get 2 }}" {{else}} height="{{ .Height }}" {{ end }}
+                {{ if len $.Params | eq 4 }} width="{{ $.Get 3 }}" {{else}} width="{{ .Width }}" {{ end }}
+                class= "responsive-img">
+                
+            </noscript>
+
+        </amp-anim>
+    {{end}}
+{{end}}

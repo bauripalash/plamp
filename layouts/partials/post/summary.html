@@ -1,0 +1,8 @@
+<div class="website-box">
+  <a href="{{.Permalink}}" data-rel="prefetch">
+    {{ with .Params.Image.Src }}<div class="post-banner">{{- partial "blocks/image.html" (dict "src" . "alt" $.Title "class" "summary__image") -}} </div>{{ end }}
+
+    <h2 class="summary__title">{{.Title}}</h2>
+    <p>{{.Summary}}</p>
+  </a>
+</div>
