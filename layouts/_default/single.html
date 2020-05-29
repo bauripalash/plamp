@@ -3,8 +3,11 @@
   <article class="content">
     <!-- {{- partial "post/under-title.html" . -}} -->
     {{ .Content }}
-    <!-- {{- partial "post/related-content.html" . -}} -->
-    <!-- {{- partial "post/author.html" . -}} -->
+    <hr class="sep">
+    {{- partial "post/author.html" . -}}
+    <hr>
+    {{- partial "post/related-content.html" . -}}
+    
     <hr class="sep">
     {{- partial "post/comments.html" . -}}
   </article>

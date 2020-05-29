@@ -1,5 +1,0 @@
-<amp-user-notification layout=nodisplay
-                       id="{{ if .Get "id" }}{{ .Get "id" }}{{ else }}amp-user-notification-id-please-set-id{{ end }}">
-    {{ if .Get "message" }}{{ .Get "message" }}{{ end }}
-    <button on="tap:{{ if .Get "id" }}{{ .Get "id" }}{{ else }}amp-user-notification-id-please-set-id{{ end }}.dismiss">{{ if .Get "dismiss" }}{{ .Get "dismiss" }}{{ end }}</button>
-</amp-user-notification>

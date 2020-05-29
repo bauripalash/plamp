@@ -1,5 +1,6 @@
 {{ if isset .Site.Params "commentsembedurl" }}
-    <amp-iframe width=600 height=180
+    {{if not (isset .Params "nocomment")}}
+    <amp-iframe width=600 height=220
         layout="responsive"
         sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
         resizable
@@ -12,4 +13,5 @@
             Load more
         </div>
     </amp-iframe>
+    {{end}}
 {{ end }}

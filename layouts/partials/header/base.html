@@ -19,7 +19,7 @@
     {{ end }}
 
     <li style="float:right">
-        <a class="about" data-rel="prefetch" href="{{ "/about" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+        <a class="about"  href="{{ .Site.Params.Aboutpage }}/{{.Language.Lang}}" aria-label="{{ i18n "goBackHome" }}">
             {{ i18n "about" }}
         </a>
     </li>

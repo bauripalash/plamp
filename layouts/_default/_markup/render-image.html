@@ -3,8 +3,8 @@
             <amp-img
                 src="{{ .Destination | absURL }}"
                 
-                width={{if .Title}} {{index (split .Title "x") 1}} {{else}} "1" {{end}}
-                height={{if .Title}} {{index (split .Title "x") 0}} {{else}} "1" {{end}}
+                width={{if .Title}} {{index (split .Title "x") 0}} {{else}} "1" {{end}}
+                height={{if .Title}} {{index (split .Title "x") 1}} {{else}} "1" {{end}}
                 layout="responsive"
                 {{ with .Text }} alt="{{ . | safeHTML}}" {{ end }}
                 class="">
@@ -12,8 +12,8 @@
                 <noscript>
                     <img src="{{ .Destination | absURL }}"                
                     {{ with .Text }} alt="{{ . | safeHTML }}" {{ end }} }
-                    width={{if .Title}} {{index (split .Title "x") 1}} {{else}} "1" {{end}}
-                    height={{if .Title}} {{index (split .Title "x") 0}} {{else}} "1" {{end}}
+                    width={{if .Title}} {{index (split .Title "x") 0}} {{else}} "1" {{end}}
+                    height={{if .Title}} {{index (split .Title "x") 1}} {{else}} "1" {{end}}
                     class="responsive-img">
 
                 </noscript>

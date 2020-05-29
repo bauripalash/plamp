@@ -1,4 +1,8 @@
 <style amp-custom>
+    @font-face {
+        font-family: "Noto Serif Bengali";
+        src: url("{{ "/font/NotoSerifBengali-Regular.ttf" | absURL }}");
+    }
     {{ with resources.Get "style.css" | resources.Minify }}
         {{ .Content | safeCSS }}
     {{ end }}

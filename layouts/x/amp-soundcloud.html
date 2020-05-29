@@ -1,9 +1,0 @@
-<amp-soundcloud {{ with .height }}height="{{ . }}" {{else}} height = "166" {{ end }}
-                {{ with .width }}width="{{ . }}"  {{ end }}
-                layout="fixed-height"
-                {{ with .track }}data-trackid="{{ . }}"{{ end }}
-                {{ with .secret }}data-secret-token="{{ . }}"{{ end }}
-                {{ with .visual }}data-visual="{{ . }}" {{else}} data-visual="false" {{ end }}
-                {{ with .color }}data-color="{{ . }}" {{else}} data-color="#0048cd" {{ end }}
-                {{with .playlist}} data-playlistid="{{ . }}" {{end}}>
-            </amp-soundcloud>

@@ -1,7 +1,9 @@
-{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ $related := .Site.RegularPages.Related . | first 2 }}
 {{ with $related }}
-    <h2 class="related-content__title">{{ i18n "related" }}</h2>
-    {{ range . }}
-        <p class="related-content__item"><a href="{{.Permalink }}" data-rel="prefetch">{{ .Title }}</a></p>
-    {{ end }}
+    <h2 class="related-title">{{ i18n "related" }}</h2>
+    <div class="related-container">
+        {{ range . }}
+            <p class="related-item"><a href="{{.Permalink }}" data-rel="prefetch">{{ .Title }}</a></p>
+        {{ end }}
+    </div>
 {{ end }}
