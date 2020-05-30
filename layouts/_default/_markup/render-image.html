@@ -11,7 +11,7 @@
 
                 <noscript>
                     <img src="{{ .Destination | absURL }}"                
-                    {{ with .Text }} alt="{{ . | safeHTML }}" {{ end }} }
+                    {{ with .Text }} alt="{{ . | safeHTML }}" {{ end }}
                     width={{if .Title}} {{index (split .Title "x") 0}} {{else}} "1" {{end}}
                     height={{if .Title}} {{index (split .Title "x") 1}} {{else}} "1" {{end}}
                     class="responsive-img">
