@@ -2,6 +2,7 @@
     @font-face {
         font-family: "Noto Serif Bengali";
         src: url("{{ "/font/NotoSerifBengali-Regular.ttf" | absURL }}");
+        font-display: swap;
     }
     {{ with resources.Get "style.css" | resources.Minify }}
         {{ .Content | safeCSS }}
