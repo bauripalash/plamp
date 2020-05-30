@@ -54,3 +54,9 @@ other = "Your browser doesn’t support HTML5 audio"
 other = "About"
 [author_credit]
 other = "Written by, Palash Bauri"
+[facebook]
+other = "FACEBOOK"
+[twitter]
+other = "TWITTER"
+[instagram]
+other = "INSTAGRAM"

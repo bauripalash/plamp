@@ -1,3 +1,13 @@
 <div class="footer__copyright">© {{ i18n "author_name" }} {{ now.Format "2006" }}</div>
 
 {{- partial "footer/language-menu.html" . -}}
+<br>
+{{with .Site.Params.Fb_profile}}
+    <span><a href="{{.}}">[{{ i18n "facebook" }}]</a></span>
+{{end}}
+{{with .Site.Params.Instagram_profile}}
+    <span><a href="{{.}}">[{{ i18n "instagram" }}]</a></span>
+{{end}}
+{{with .Site.Params.Twitter_profile}}
+    <span><a href="{{.}}">[{{ i18n "twitter" }}]</a></span>
+{{end}}

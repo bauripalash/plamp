@@ -1,52 +1,23 @@
 <figure class="figure {{ with .caption }}figure--with-caption{{ end }}">
     
-    {{ $resource := resources.Get .src }}
-    {{ with $resource }}
-        {{ if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") }}
-            <amp-img
-                src="{{ .Permalink | absURL }}"
-                srcset="
-                    {{ (.Resize "1200x").Permalink }} 1200w,
-                    {{ (.Resize "800x").Permalink }} 800w,
-                    {{ (.Resize "640x").Permalink }} 640w,
-                    {{ (.Resize "480x").Permalink }} 480w,
-                    {{ (.Resize "320x").Permalink }} 320w
-                "
-                width={{ with $.width }} "{{ . }}" {{ else }} {{ .Width }} {{ end }}
-                height={{ with $.height }} "{{ . }}" {{ else }} {{ .Height }} {{ end }}
-                layout={{ with $.layout }}"{{ . }}"{{else}}"responsive"{{ end }}
-                {{ with $.alt }}alt="{{ . }}"{{ end }}
-                class="figure__image {{ with $.class }}{{ . }}{{ end }} {{ with $.caption }}figure__image--with-caption{{ end }}">
 
-                <noscript>
-                    <img src="{{ .Permalink | absURL }}"                
-                    {{ with $.alt }}alt="{{ . }}"{{ end }}
-                    width={{ with $.width }} "{{ . }}" {{ else }} {{ .Width }} {{ end }}
-                    height={{ with $.height }} "{{ . }}" {{ else }} {{ .Height }} {{ end }}
-                    class="{{ with $.class }} {{ . }} {{else}} responsive-img {{ end }}">
-                    
-                </noscript>
-
-            </amp-img>
-        {{ else }}
             <amp-img
-                src="{{ .Permalink | absURL }}"
-                width={{ with $.width }} "{{ . }}" {{ else }} {{ .Width }} {{ end }}
-                height={{ with $.height }} "{{ . }}" {{ else }} {{ .Height }} {{ end }}
-                layout={{ with $.layout }}"{{ . }}"{{else}}"responsive"{{ end }}
-                {{ with $.alt }}alt="{{ . }}"{{ end }}
-                class="figure__image {{ with $.class }}{{ . }}{{ end }} {{ with $.caption }}figure__image--with-caption{{ end }}">
+                src="{{ .src | absURL }}"
+                width={{with .width}} "{{.}}" {{else}} {{ with .size }} "{{index (split . "x") 0}}" {{ else }} "16" {{ end }}{{end}}
+                height={{with .height}} "{{.}} {{else}} {{ with .size }} "{{index (split . "x") 1}}" {{ else }} "9" {{ end }} {{end}}
+                layout={{ with .layout }}"{{ . }}"{{else}}"responsive"{{ end }}
+                {{ with .alt }}alt="{{ . }}"{{ end }}
+                class="figure__image {{ with .class }}{{ . }}{{ end }} {{ with .caption }}figure__image--with-caption{{ end }}">
                 <noscript>
-                    <img src="{{ .Permalink | absURL }}"                
-                    {{ with $.alt }}alt="{{ . }}"{{ end }}
-                    width={{ with $.width }} "{{ . }}" {{ else }} {{ .Width }} {{ end }}
-                    height={{ with $.height }} "{{ . }}" {{ else }} {{ .Height }} {{ end }}
-                    class="{{ with $.class }} {{ . }} {{else}} responsive-img {{ end }}">
+                    <img src="{{ .src | absURL }}"                
+                    {{ with .alt }}alt="{{ . }}"{{ end }}
+                    width={{ with .size }} "{{index (split . "x") 0}}" {{ else }} "16" {{ end }}
+                    height={{ with .size }} "{{index (split . "x") 1}}" {{ else }} "9" {{ end }}
+                    class="{{ with .class }} {{ . }} {{else}} responsive-img {{ end }}">
                     
                 </noscript>
             </amp-img>
-        {{ end }}
-    {{ end }}
+
 
     {{ with .caption }}
         <figcaption>

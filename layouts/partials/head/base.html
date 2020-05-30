@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-<title>{{ .Title }}</title>
+<title>{{ .Title }} {{if not (or .IsHome .IsNode)}} — {{ i18n "author_name" }} {{end}} {{ if .IsNode  }} {{ if gt .Paginator.PageNumber 1}} - Page {{ .Paginator.PageNumber }}{{end}}{{ end }} </title>
 
 {{- partial "head/language-metas.html" . -}}
 
@@ -10,7 +10,8 @@
 <meta name="description" content="{{if .IsHome}}{{ .Site.Params.Description }}{{else}}{{.Description}}{{end}}" />
 {{- $ampCorePath := index (index $.Site.Data "amp-modules") "amp-core" -}}
 <link rel="preload" as="script" href="{{ $ampCorePath }}">
-
+{{ if (or .IsHome .IsNode) }} <link rel="preload" href="{{ "/banner.svg" | absURL}}" as="image"> {{end}}
+<link rel="preload" href="{{ "/bak.svg" | absURL}}" as="image">
 {{ with .Params.Image.Src }} <link rel="preload" href="{{. | absURL}}" as="image"> {{end}}
 
 <link rel="canonical" href="{{ .Permalink }}" >
