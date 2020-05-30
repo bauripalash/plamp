@@ -17,28 +17,22 @@ keywords = []
     elements = []
 
 [author]
-    name = ""
-    homepage = ""
+    name = "Palash Bauri"
+    homepage = "https://palashbauri.in"
+    bio = "I am Palash Bauri. I am a Student , Programmer , Inventor , Writer."
+    image = "/palash.jpg"
 
 [image]
     src = ""
+    size = ""
 
-[ogp]
-    title = ""
-    url = ""
-    description = ""
-    image = ""
-    site = ""
-
-[twitter]
-    title = ""
-    url = ""
-    description = ""
-    image = ""
-    site = ""
 
 [sitemap]
     changefreq = "monthly"
     priority = 0.5
     filename = "sitemap.xml"
+
+nocomment = false    
 +++
+
+{{< under-title >}}

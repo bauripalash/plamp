@@ -9,7 +9,12 @@
     {{- partial "post/related-content.html" . -}}
     
     <hr class="sep">
-    {{- partial "post/comments.html" . -}}
+
+
+    
+    {{ if ne .Params.Nocomment true  }}
+      {{- partial "post/comments.html" . -}}
+    {{end}}
   </article>
 </div>
 {{ end }}
