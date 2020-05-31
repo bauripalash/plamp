@@ -8,6 +8,9 @@
 {{- partial "head/pagination-metas.html" . -}}
 
 <meta name="description" content="{{if .IsHome}}{{ .Site.Params.Description }}{{else}}{{.Description}}{{end}}" />
+{{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 {{- $ampCorePath := index (index $.Site.Data "amp-modules") "amp-core" -}}
 <link rel="preload" as="script" href="{{ $ampCorePath }}">
 {{ if (or .IsHome .IsNode) }} <link rel="preload" href="{{ "/banner.svg" | absURL}}" as="image"> {{end}}

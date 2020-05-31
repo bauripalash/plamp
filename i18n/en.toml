@@ -60,3 +60,5 @@ other = "FACEBOOK"
 other = "TWITTER"
 [instagram]
 other = "INSTAGRAM"
+[welcome]
+other = "Welcome!"

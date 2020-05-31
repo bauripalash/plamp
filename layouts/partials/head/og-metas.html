@@ -2,9 +2,10 @@
 <meta property="og:title" content="{{ .Params.Ogp.Title | default .Title }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:description" content="{{if .IsHome}}{{ .Site.Params.Description }}{{else}}{{.Params.Ogp.Description | default .Description}}{{end}}">
-<meta property="og:image" content="{{ .Params.Ogp.Image | default (.Params.Image.Src | absURL )| default ((printf "%s-logo.png" (.Language.Lang)) | absURL)}}">
+<meta property="og:image" content="{{ (.Params.Ogp.Image | default (.Params.Image.Src ) | default ((printf "%s-logo.png" (.Language.Lang))) | absURL )}}">
 <meta property="og:image:width" content="{{ .Params.Ogp.Width | default (index (split .Params.Image.Size "x") 0) | default "1200"}}" />
 <meta property="og:image:height" content="{{ .Params.Ogp.Height | default (index (split .Params.Image.Size "x") 1) | default "630"}}" />
+
 {{ if .IsPage}}
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="{{(.Date.Format $ISO8601)}}">
